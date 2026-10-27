@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fatma Gündoğan — Deniz ve Liman İşletmeciliği</title>
+<meta name="description" content="Fatma Gündoğan — Sakarya Uygulamalı Bilimler Üniversitesi, Denizcilik Meslek Yüksekokulu (Kocaali), Deniz ve Liman İşletmeciliği öğrencisi.">
+<meta name="theme-color" content="#031736">
+<meta property="og:title" content="Fatma Gündoğan — Deniz ve Liman İşletmeciliği">
+<meta property="og:description" content="SUBÜ Denizcilik MYO (Kocaali) öğrencisi Fatma Gündoğan'ın kisisel sitesi.">
+<meta property="og:image" content="logo-web.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<style>
+  :root{
+    --navy-950:#020d21; --navy-900:#031736; --navy-800:#06295e; --navy-700:#0a3d8f;
+    --blue:#0b63e5; --blue-2:#1284ff; --sky:#38bdf8; --cyan:#22d3ee; --aqua:#67e8f9;
+    --ice:#e0f2fe; --ice-2:#dbeafe; --white:#ffffff;
+    --text:#eaf4ff; --muted:#a9c6ea; --muted-2:#7ea6d4;
+    --card:rgba(255,255,255,.07); --card-2:rgba(255,255,255,.11);
+    --border:rgba(147,197,253,.22);
+    --shadow:0 30px 80px rgba(0,0,0,.45);
+    --radius:24px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:
+      radial-gradient(1100px 600px at 85% -5%, rgba(34,211,238,.28), transparent 60%),
+      radial-gradient(900px 550px at -10% 25%, rgba(11,99,229,.35), transparent 60%),
+      radial-gradient(800px 500px at 50% 110%, rgba(10,61,143,.5), transparent 60%),
+      linear-gradient(180deg,#04122e 0%, #031736 38%, #04204d 70%, #031736 100%);
+    color:var(--text); overflow-x:hidden; line-height:1.6;
+  }
+  ::selection{background:var(--sky); color:#03204a}
+  a{color:inherit; text-decoration:none}
+  img,svg{max-width:100%}
+  .wrap{width:min(1180px,92%); margin:0 auto; position:relative; z-index:2}
+
+  /* ---------- Scroll progress ---------- */
+  #progress{position:fixed; top:0; left:0; height:4px; width:0%;
+    background:linear-gradient(90deg,var(--blue),var(--sky),var(--cyan));
+    z-index:1001; box-shadow:0 0 18px rgba(56,189,248,.8); border-radius:0 4px 4px 0}
+
+  /* ---------- Cursor glow ---------- */
+  #glow{position:fixed; left:0; top:0; width:520px; height:520px; border-radius:50%; pointer-events:none;
+    background:radial-gradient(circle, rgba(56,189,248,.14), transparent 65%);
+    transform:translate(-50%,-50%); z-index:0; transition:opacity .3s}
+
+  /* ---------- Nav ---------- */
+  header{position:fixed; inset:0 0 auto 0; z-index:1000; transition:.35s}
+  header.scrolled{background:rgba(3,20,48,.78); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); box-shadow:0 10px 40px rgba(0,0,0,.35)}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0; gap:16px}
+  .logo{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.4px}
+  .logo-badge{width:46px;height:46px;border-radius:14px; display:grid; place-items:center; font-size:18px; color:#fff;
+    background:linear-gradient(135deg,var(--blue),var(--sky) 60%,var(--cyan));
+    box-shadow:0 12px 30px rgba(18,132,255,.45), inset 0 1px 0 rgba(255,255,255,.5);
+    transform:perspective(400px) rotateX(8deg) rotateY(-10deg)}
+  .logo-img{width:54px;height:54px;border-radius:50%;object-fit:cover;flex:0 0 auto;
+    border:2px solid rgba(125,211,252,.75);
+    box-shadow:0 12px 30px rgba(18,132,255,.5), 0 0 22px rgba(34,211,238,.35), inset 0 1px 0 rgba(255,255,255,.5);
+    transform:perspective(400px) rotateX(6deg) rotateY(-8deg); transition:transform .35s}
+  .logo:hover .logo-img{transform:perspective(400px) rotateX(0) rotateY(0) scale(1.07) rotate(-3deg)}
+  .avatar-img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid rgba(255,255,255,.85)}
+  .logo small{display:block; font-weight:600; color:var(--muted); font-size:11px; letter-spacing:2.2px; text-transform:uppercase}
+  .logo-name{font-size:17px; line-height:1.1}
+  .nav-links{display:flex; gap:6px; align-items:center}
+  .nav-links a{padding:9px 14px; border-radius:999px; font-size:14.5px; font-weight:600; color:#cfe6ff; transition:.25s}
+  .nav-links a:hover{background:rgba(56,189,248,.16); color:#fff; transform:translateY(-1px)}
+  .nav-cta{background:linear-gradient(135deg,var(--blue),var(--sky)); color:#fff !important; box-shadow:0 10px 26px rgba(11,99,229,.45)}
+  .nav-cta:hover{filter:brightness(1.08)}
+  #menuBtn{display:none; background:var(--card); border:1px solid var(--border); color:#fff; width:44px;height:44px;border-radius:12px;font-size:20px;cursor:pointer}
+
+  /* ---------- Hero ---------- */
+  .hero{min-height:100vh; display:flex; align-items:center; padding:130px 0 90px; position:relative; overflow:hidden}
+  #seaCanvas{position:absolute; inset:0; width:100%; height:100%; opacity:.85}
+  .hero-grid{display:grid; grid-template-columns:1.08fr .92fr; gap:54px; align-items:center; position:relative; z-index:3}
+  .kicker{display:inline-flex; align-items:center; gap:9px; padding:8px 14px; border:1px solid var(--border);
+    background:rgba(56,189,248,.10); border-radius:999px; font-size:13px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:#bae6fd}
+  .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan); box-shadow:0 0 0 0 rgba(34,211,238,.7); animation:pulse 2s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(34,211,238,0)}100%{box-shadow:0 0 0 0 rgba(34,211,238,0)}}
+  h1{font-size:clamp(44px,6.2vw,76px); line-height:1.02; letter-spacing:-1.5px; margin:20px 0 8px; font-weight:900}
+  h1 .grad{background:linear-gradient(92deg,#fff 10%, #7dd3fc 45%, #22d3ee 70%, #60a5fa); -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 8px 28px rgba(34,211,238,.25))}
+  .hero-role{font-size:clamp(19px,2.4vw,26px); font-weight:700; color:#dbeafe}
+  .hero-role span{color:var(--sky)}
+  .hero p.lead{color:var(--muted); font-size:17.5px; max-width:560px; margin:16px 0 28px}
+  .btns{display:flex; gap:14px; flex-wrap:wrap}
+  .btn{display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:16px; font-weight:800; font-size:15px;
+    transition:.25s; cursor:pointer; border:1px solid transparent}
+  .btn-primary{background:linear-gradient(135deg,var(--blue),var(--sky) 65%,var(--cyan)); color:#fff;
+    box-shadow:0 18px 40px rgba(11,99,229,.45), inset 0 1px 0 rgba(255,255,255,.45)}
+  .btn-primary:hover{transform:translateY(-3px) scale(1.01); box-shadow:0 24px 50px rgba(11,99,229,.55)}
+  .btn-ghost{background:rgba(255,255,255,.06); border-color:var(--border); color:#eaf4ff; backdrop-filter:blur(8px)}
+  .btn-ghost:hover{transform:translateY(-3px); background:rgba(255,255,255,.11)}
+  .hero-meta{display:flex; gap:26px; flex-wrap:wrap; margin-top:34px}
+  .hero-meta div b{font-size:21px; display:block; color:#fff}
+  .hero-meta div span{font-size:12.5px; color:var(--muted-2); letter-spacing:1px; text-transform:uppercase; font-weight:700}
+
+  /* 3D stage */
+  .stage{perspective:1300px; position:relative}
+  .hero-card{
+    position:relative; border-radius:30px; padding:30px 28px 24px;
+    background:linear-gradient(160deg, rgba(255,255,255,.16), rgba(255,255,255,.05) 45%, rgba(11,99,229,.16));
+    border:1px solid rgba(186,230,253,.35);
+    box-shadow:var(--shadow), inset 0 1px 0 rgba(255,255,255,.35);
+    transform-style:preserve-3d; will-change:transform; backdrop-filter:blur(10px); transition:transform .35s ease-out;
+  }
+  .hero-card::after{content:""; position:absolute; inset:0; border-radius:30px; pointer-events:none;
+    background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.16) 48%, transparent 62%); background-size:250% 100%; animation:shine 6s ease-in-out infinite}
+  @keyframes shine{0%,100%{background-position:120% 0}50%{background-position:-40% 0}}
+  .avatar-ring{width:128px;height:128px;margin:4px auto 14px; border-radius:50%; display:grid; place-items:center; position:relative;
+    transform:translateZ(55px);
+    background:conic-gradient(from 120deg, var(--blue), var(--cyan), var(--sky), #1d4ed8, var(--blue));
+    padding:4px; box-shadow:0 22px 45px rgba(0,0,0,.4)}
+  .avatar{width:100%;height:100%;border-radius:50%; display:grid; place-items:center;
+    background:radial-gradient(circle at 32% 28%, #2563eb, #06295e 68%); font-size:42px; font-weight:900; letter-spacing:1px; color:#e0f2fe;
+    border:3px solid rgba(255,255,255,.85)}
+  .hero-card h3{text-align:center; font-size:24px; transform:translateZ(45px)}
+  .hero-card .sub{text-align:center; color:#bae6fd; font-weight:700; font-size:14px; transform:translateZ(40px)}
+  .hero-card .uni{text-align:center; color:var(--muted); font-size:13.5px; margin-top:6px; transform:translateZ(35px)}
+  .ship-art{margin:18px auto 4px; transform:translateZ(30px); filter:drop-shadow(0 16px 22px rgba(0,0,0,.35))}
+  .chip-row{display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:16px; transform:translateZ(38px)}
+  .chip{font-size:12.5px; font-weight:700; padding:7px 12px; border-radius:999px; background:rgba(2,20,48,.55); border:1px solid var(--border); color:#dbeafe}
+  .float-badge{position:absolute; z-index:5; padding:11px 15px; border-radius:16px; font-weight:800; font-size:13.5px; color:#fff;
+    background:linear-gradient(140deg, rgba(18,132,255,.92), rgba(6,41,94,.92)); border:1px solid rgba(186,230,253,.45);
+    box-shadow:0 18px 38px rgba(0,0,0,.4); backdrop-filter:blur(6px); animation:floaty 5.5s ease-in-out infinite}
+  .fb-1{top:26px; left:-26px} .fb-2{top:44%; right:-30px; animation-delay:1.2s} .fb-3{bottom:22px; left:-18px; animation-delay:2.1s}
+  @keyframes floaty{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-13px) rotate(1.5deg)}}
+  .orbit{position:absolute; inset:-24px; border:1px dashed rgba(125,211,252,.28); border-radius:36px; transform:rotate(-2deg); pointer-events:none}
+
+  /* Waves */
+  .waves{position:absolute; left:0; right:0; bottom:-2px; z-index:1; opacity:.9; pointer-events:none}
+  .waves svg{display:block; width:200%; animation:waveMove 14s linear infinite}
+  .waves svg.w2{position:absolute; bottom:0; opacity:.45; animation-duration:22s; animation-direction:reverse}
+  @keyframes waveMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* Marquee */
+  .marquee{border-block:1px solid var(--border); background:rgba(255,255,255,.04); overflow:hidden; padding:14px 0; position:relative; z-index:3}
+  .marquee-track{display:flex; gap:44px; width:max-content; animation:marq 26s linear infinite; font-weight:900; letter-spacing:3px; font-size:14px; color:#93c5fd; text-transform:uppercase; white-space:nowrap}
+  @keyframes marq{to{transform:translateX(-50%)}}
+
+  /* ---------- Sections ---------- */
+  section{padding:96px 0; position:relative}
+  section[id]{scroll-margin-top:84px}
+  .sec-head{max-width:720px; margin-bottom:44px}
+  .sec-tag{display:inline-block; font-size:12.5px; font-weight:900; letter-spacing:2.5px; text-transform:uppercase; color:var(--cyan);
+    padding:7px 12px; border:1px solid var(--border); border-radius:999px; background:rgba(34,211,238,.08); margin-bottom:14px}
+  h2{font-size:clamp(30px,4vw,44px); line-height:1.12; letter-spacing:-.8px}
+  .sec-head p{color:var(--muted); margin-top:12px; font-size:16.5px}
+  .reveal{opacity:0; transform:translateY(34px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1; transform:none}
+
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:28px;
+    transition:transform .35s, background .35s, box-shadow .35s; position:relative; overflow:hidden; backdrop-filter:blur(8px)}
+  .card::before{content:""; position:absolute; inset:0 0 auto 0; height:3px;
+    background:linear-gradient(90deg,transparent,var(--sky),var(--cyan),transparent); opacity:0; transition:.35s}
+  .card:hover{transform:translateY(-8px); background:var(--card-2); box-shadow:0 26px 55px rgba(0,0,0,.35)}
+  .card:hover::before{opacity:1}
+  .icon{width:56px;height:56px; border-radius:17px; display:grid; place-items:center; font-size:26px; margin-bottom:16px;
+    background:linear-gradient(140deg, rgba(18,132,255,.35), rgba(34,211,238,.18)); border:1px solid var(--border);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.25); transform:perspective(400px) rotateX(10deg) rotateY(-8deg)}
+  .card h3{font-size:19px; margin-bottom:8px}
+  .card p{color:var(--muted); font-size:15px}
+
+  /* Education */
+  .edu{display:grid; grid-template-columns:1.15fr .85fr; gap:20px; align-items:stretch}
+  .edu-main{background:linear-gradient(150deg, rgba(11,99,229,.30), rgba(255,255,255,.06) 55%); border:1px solid rgba(147,197,253,.35); border-radius:28px; padding:34px; position:relative; overflow:hidden}
+  .edu-main::after{content:"⚓"; position:absolute; right:-12px; bottom:-38px; font-size:170px; opacity:.09; transform:rotate(-14deg)}
+  .edu-main h3{font-size:25px; line-height:1.25}
+  .edu-main .where{color:#bae6fd; font-weight:800; margin:8px 0 14px}
+  .edu-main p{color:#c7ddf7; font-size:15.5px}
+  .fact-list{display:grid; gap:12px}
+  .fact{display:flex; gap:14px; align-items:flex-start; background:var(--card); border:1px solid var(--border); border-radius:18px; padding:17px 18px; transition:.3s}
+  .fact:hover{transform:translateX(6px); background:var(--card-2)}
+  .fact b{color:#fff} .fact p{color:var(--muted); font-size:14px}
+  .fact .n{flex:0 0 auto; width:38px;height:38px;border-radius:12px; display:grid; place-items:center; font-weight:900; color:#fff;
+    background:linear-gradient(135deg,var(--blue),var(--cyan)); font-size:15px}
+
+  /* Courses */
+  .course-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+  .course{padding:22px; border-radius:20px; background:var(--card); border:1px solid var(--border); transition:.3s; cursor:default}
+  .course:hover{transform:translateY(-6px) perspective(600px) rotateX(4deg); background:var(--card-2); border-color:rgba(103,232,249,.45)}
+  .course .e{font-size:27px} .course h4{font-size:15.5px; margin:10px 0 5px} .course p{font-size:13px; color:var(--muted)}
+
+  /* Skills */
+  .skill{margin-bottom:20px}
+  .skill-top{display:flex; justify-content:space-between; font-weight:700; font-size:14.5px; margin-bottom:8px}
+  .skill-top span:last-child{color:var(--sky)}
+  .bar{height:11px; border-radius:99px; background:rgba(255,255,255,.09); overflow:hidden; border:1px solid rgba(147,197,253,.15)}
+  .bar i{display:block; height:100%; width:0; border-radius:99px;
+    background:linear-gradient(90deg,var(--blue),var(--sky),var(--cyan)); box-shadow:0 0 16px rgba(56,189,248,.65); transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+  .tags{display:flex; flex-wrap:wrap; gap:9px}
+  .tag{padding:9px 14px; border-radius:999px; background:rgba(56,189,248,.10); border:1px solid var(--border); font-size:13.5px; font-weight:700; color:#dbeafe; transition:.25s}
+  .tag:hover{transform:translateY(-3px) scale(1.03); background:rgba(56,189,248,.2)}
+
+  /* 3D Carousel */
+  .carousel-zone{perspective:1400px; padding:26px 0 8px}
+  .carousel{position:relative; width:250px; height:290px; margin:26px auto 8px; transform-style:preserve-3d; transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+  .panel{position:absolute; inset:0; border-radius:22px; padding:24px 20px; text-align:center;
+    background:linear-gradient(165deg, rgba(18,132,255,.38), rgba(3,23,54,.92) 70%);
+    border:1px solid rgba(147,197,253,.45); box-shadow:0 22px 45px rgba(0,0,0,.4); backface-visibility:hidden}
+  .panel .e{font-size:42px} .panel h4{font-size:17px; margin:12px 0 7px} .panel p{font-size:13px; color:#c7ddf7}
+  .car-btns{display:flex; gap:12px; justify-content:center; margin-top:20px}
+  .car-btn{width:50px;height:50px;border-radius:50%; border:1px solid var(--border); background:var(--card); color:#fff; font-size:20px; cursor:pointer; transition:.25s}
+  .car-btn:hover{background:var(--blue); transform:scale(1.08)}
+  .car-hint{text-align:center; color:var(--muted-2); font-size:13px; margin-top:10px}
+
+  /* Route */
+  .route{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; position:relative}
+  .step{padding:26px 22px; border-radius:22px; background:var(--card); border:1px solid var(--border); position:relative; transition:.3s}
+  .step:hover{transform:translateY(-7px); background:var(--card-2)}
+  .step .num{font-size:13px; font-weight:900; letter-spacing:2px; color:var(--cyan)}
+  .step h4{margin:9px 0 7px; font-size:17px} .step p{font-size:14px; color:var(--muted)}
+
+  .quote{max-width:880px; margin:0 auto; text-align:center; padding:48px 34px; border-radius:30px;
+    background:linear-gradient(150deg, rgba(18,132,255,.22), rgba(255,255,255,.05)); border:1px solid rgba(147,197,253,.35); position:relative; overflow:hidden}
+  .quote p{font-size:clamp(20px,2.6vw,27px); font-weight:700; line-height:1.45}
+  .quote span{display:block; margin-top:14px; color:var(--sky); font-weight:800; letter-spacing:1.5px; font-size:13px; text-transform:uppercase}
+
+  /* Contact */
+  .contact-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+  .contact-card{text-align:center; padding:34px 24px}
+  .contact-card .icon{margin-inline:auto}
+  .contact-card a.word{color:#7dd3fc; font-weight:700; word-break:break-all}
+  .copy-btn{margin-top:14px; padding:10px 16px; border-radius:12px; border:1px solid var(--border); background:rgba(56,189,248,.14); color:#fff; font-weight:800; cursor:pointer; transition:.25s; font-size:14px}
+  .copy-btn:hover{background:var(--blue)}
+  #toast{position:fixed; left:50%; bottom:26px; transform:translate(-50%,90px); z-index:1200;
+    background:linear-gradient(135deg,var(--blue),var(--sky)); color:#fff; font-weight:800; padding:14px 22px; border-radius:14px;
+    box-shadow:0 20px 45px rgba(0,0,0,.45); transition:.45s cubic-bezier(.2,.7,.2,1)}
+  #toast.show{transform:translate(-50%,0)}
+
+  footer{padding:44px 0 36px; border-top:1px solid var(--border); background:rgba(2,13,33,.55)}
+  .foot{display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:14px}
+  .heart{color:#38bdf8; display:inline-block; animation:beat 1.6s ease-in-out infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.3)}24%{transform:scale(1)}}
+
+  @media (max-width: 1020px){
+    .hero-grid,.edu,.grid-2{grid-template-columns:1fr}
+    .grid-3,.contact-grid{grid-template-columns:1fr 1fr}
+    .course-grid{grid-template-columns:1fr 1fr}
+    .route{grid-template-columns:1fr 1fr}
+    .stage{max-width:520px; margin:0 auto; width:100%}
+  }
+  @media (max-width: 720px){
+    .nav-links{position:fixed; top:76px; left:4%; right:4%; flex-direction:column; align-items:stretch; padding:14px;
+      background:rgba(3,20,48,.96); border:1px solid var(--border); border-radius:20px; display:none; box-shadow:var(--shadow)}
+    .nav-links.open{display:flex}
+    .nav-links a{text-align:center; padding:13px}
+    #menuBtn{display:grid; place-items:center}
+    .grid-3,.grid-2,.contact-grid,.route{grid-template-columns:1fr}
+    .fb-1{left:2px}.fb-2{right:2px}.fb-3{left:2px}
+    .carousel{width:220px; height:270px}
+    section{padding:72px 0}
+    .hero{padding-top:110px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="glow"></div>
+
+<header id="header">
+  <div class="wrap nav">
+    <a class="logo" href="#anasayfa">
+      <img class="logo-img" src="logo-web.webp" width="54" height="54" decoding="async" alt="Fatma Gündoğan — FG Denizcilik Logosu">
+      <span><span class="logo-name">Fatma Gündoğan</span><small>Deniz &amp; Liman</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#hakkimda">Hakkımda</a>
+      <a href="#egitim">Eğitim</a>
+      <a href="#dersler">Dersler</a>
+      <a href="#yetenekler">Yetenekler</a>
+      <a href="#kariyer">Kariyer</a>
+      <a href="#iletisim" class="nav-cta">İletişim ✉️</a>
+    </nav>
+    <button id="menuBtn" aria-label="Menüyü aç">☰</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="anasayfa">
+  <canvas id="seaCanvas"></canvas>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker"><span class="dot"></span> Kocaali • Sakarya • Karadeniz</span>
+      <h1>Fatma<br><span class="grad">Gündoğan</span></h1>
+      <div class="hero-role">⚓ <span>Deniz ve Liman İşletmeciliği</span> Öğrencisi</div>
+      <p class="lead">
+        Sakarya Uygulamalı Bilimler Üniversitesi <b style="color:#dbeafe">Denizcilik Meslek Yüksekokulu</b>'nda;
+        liman operasyonları, gemi acenteciliği ve deniz lojistiğine tutkuyla bağlı,
+        rotasını geleceğin denizcilik sektörüne çevirmiş bir öğrenci.
+      </p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#iletisim">✉️ İletişime Geç</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/fatma-g%C3%BCndo%C4%9Fan-122a37380/" target="_blank" rel="noopener">in&nbsp; LinkedIn Profilim ↗</a>
+      </div>
+      <div class="hero-meta">
+        <div><b data-count="2">0</b><span>Yıllık Program</span></div>
+        <div><b data-count="4">0</b><span>Dönem Eğitim</span></div>
+        <div><b data-count="30">0</b><span>Gün Zorunlu Staj</span></div>
+        <div><b data-count="5">0</b><span>MYO Programı Arasında</span></div>
+      </div>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="orbit"></div>
+      <div class="float-badge fb-1">🚢 Liman Operasyonları</div>
+      <div class="float-badge fb-2">🌊 Deniz Ticareti</div>
+      <div class="float-badge fb-3">🧭 Lojistik &amp; Acente</div>
+
+      <div class="hero-card" id="tiltCard">
+        <div class="avatar-ring"><img class="avatar-img" src="logo-web.webp" width="128" height="128" decoding="async" alt="Fatma Gündoğan logosu"></div>
+        <h3>Fatma Gündoğan</h3>
+        <div class="sub">Deniz ve Liman İşletmeciliği</div>
+        <div class="uni">Sakarya Uygulamalı Bilimler Üniversitesi<br>Denizcilik Meslek Yüksekokulu — Kocaali</div>
+
+        <!-- Gemi illüstrasyonu (SVG) -->
+        <svg class="ship-art" viewBox="0 0 340 130" width="320" role="img" aria-label="Konteyner gemisi illüstrasyonu">
+          <defs>
+            <linearGradient id="hull" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#0b63e5"/><stop offset="1" stop-color="#083a86"/>
+            </linearGradient>
+            <linearGradient id="sea" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#38bdf8"/>
+            </linearGradient>
+          </defs>
+          <circle cx="292" cy="26" r="15" fill="#fde68a" opacity=".9"/>
+          <rect x="52" y="34" width="34" height="20" rx="3" fill="#38bdf8"/>
+          <rect x="90" y="34" width="34" height="20" rx="3" fill="#f472b6"/>
+          <rect x="128" y="34" width="34" height="20" rx="3" fill="#34d399"/>
+          <rect x="71" y="14" width="34" height="20" rx="3" fill="#fbbf24"/>
+          <rect x="109" y="14" width="34" height="20" rx="3" fill="#60a5fa"/>
+          <rect x="196" y="22" width="30" height="32" rx="4" fill="#e0f2fe"/>
+          <rect x="202" y="28" width="7" height="7" fill="#0b63e5"/><rect x="213" y="28" width="7" height="7" fill="#0b63e5"/>
+          <rect x="202" y="39" width="7" height="7" fill="#0b63e5"/><rect x="213" y="39" width="7" height="7" fill="#0b63e5"/>
+          <path d="M28 58 L236 58 L218 88 L52 88 Z" fill="url(#hull)"/>
+          <rect x="28" y="54" width="208" height="6" rx="3" fill="#ef4444"/>
+          <path d="M8 102 q14 -10 28 0 t28 0 t28 0 t28 0 t28 0 t28 0 t28 0 t28 0 t28 0 t28 0 t28 0" fill="none" stroke="url(#sea)" stroke-width="5" stroke-linecap="round"/>
+          <path d="M22 116 q14 -10 28 0 t28 0 t28 0 t28 0 t28 0 t28 0 t28 0 t28 0 t28 0" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+        </svg>
+
+        <div class="chip-row">
+          <span class="chip">⚓ Denizcilik</span><span class="chip">🏗️ Liman</span>
+          <span class="chip">📦 Lojistik</span><span class="chip">💙 Mavi Tutkusu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="waves" aria-hidden="true">
+    <svg viewBox="0 0 2400 90" preserveAspectRatio="none"><path d="M0,50 C200,90 400,10 600,50 C800,90 1000,10 1200,50 L1200,90 L0,90 Z" fill="rgba(14,116,233,.35)"/><path d="M1200,50 C1400,90 1600,10 1800,50 C2000,90 2200,10 2400,50 L2400,90 L1200,90 Z" fill="rgba(14,116,233,.35)"/></svg>
+    <svg class="w2" viewBox="0 0 2400 90" preserveAspectRatio="none"><path d="M0,55 C200,15 400,85 600,55 C800,15 1000,85 1200,55 L1200,90 L0,90 Z" fill="rgba(34,211,238,.30)"/><path d="M1200,55 C1400,15 1600,85 1800,55 C2000,15 2200,85 2400,55 L2400,90 L1200,90 Z" fill="rgba(34,211,238,.30)"/></svg>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>⚓ Denizcilik</span><span>🚢 Liman İşletmeciliği</span><span>📦 Lojistik</span><span>🧭 Gemi Acenteciliği</span><span>🌊 Deniz Ticareti</span><span>🏗️ Terminal Operasyonları</span><span>🗺️ Kocaali — Karadeniz</span>
+  </div>
+</div>
+
+<!-- ============ HAKKIMDA ============ -->
+<section id="hakkimda">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">🌊 Hakkımda</span>
+      <h2>Merhaba, ben Fatma! 👋</h2>
+      <p>Denizin mavisine, limanların enerjisine ve gemilerin ufkuna gönül vermiş bir denizcilik öğrencisiyim.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card reveal">
+        <div class="icon">⚓</div>
+        <h3>Denizcilik Tutkusu</h3>
+        <p>Karadeniz kıyısındaki Kocaali'de eğitim görmek; deniz ticaretinin, limanların ve gemi trafiğinin tam kalbinde öğrenmek demek. Bu dünya benim için bir bölümden çok daha fazlası — bir yaşam rotası.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon">🎯</div>
+        <h3>Hedef Odaklı</h3>
+        <p>Liman operasyonlarından gemi acenteciliğine, lojistikten dış ticarete kadar sektörün her alanını öğrenmeye hevesliyim. Amacım; teoriyi sahada pratiğe döken, güvenilir bir denizcilik profesyoneli olmak.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon">💙</div>
+        <h3>Mavi Gibi: Sakin &amp; Güçlü</h3>
+        <p>En sevdiğim renk mavi — tıpkı deniz gibi sakin, derin ve güçlü. Çalışma hayatımda da bu dengeyi seviyorum: planlı, dikkatli ve her dalgaya hazır. Ekip çalışmasına ve iletişime büyük önem veriyorum.</p>
+      </article>
+    </div>
+
+    <div class="grid-3" style="margin-top:20px">
+      <article class="card reveal"><div class="icon">🤝</div><h3>Ekip Çalışması</h3><p>Liman ve gemi operasyonları kusursuz bir ekip işidir. Uyumlu, sorumluluk sahibi ve iletişimi güçlü bir takım arkadaşı olmaya özen gösteriyorum.</p></article>
+      <article class="card reveal"><div class="icon">🗂️</div><h3>Planlama &amp; Organizasyon</h3><p>Yükleme-boşaltma planları, evrak takibi ve operasyon takvimleri... Düzen ve detaylara dikkat, denizcilik işletmeciliğinin vazgeçilmezidir.</p></article>
+      <article class="card reveal"><div class="icon">📈</div><h3>Sürekli Öğrenme</h3><p>Denizcilik İngilizcesi, sektör mevzuatı ve dijital lojistik araçları üzerine kendimi sürekli geliştiriyor; sertifika ve staj fırsatlarını yakından takip ediyorum.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EĞİTİM ============ -->
+<section id="egitim" style="padding-top:30px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">🎓 Eğitim</span>
+      <h2>Eğitim Yolculuğum</h2>
+      <p>Uygulamalı eğitim modeliyle, sektörle iç içe bir yüksekokulda öğrenim görüyorum.</p>
+    </div>
+    <div class="edu">
+      <div class="edu-main reveal">
+        <span class="sec-tag" style="margin-bottom:12px">🏛️ Üniversite</span>
+        <h3>Sakarya Uygulamalı Bilimler Üniversitesi</h3>
+        <div class="where">Denizcilik Meslek Yüksekokulu (Kocaali) — Deniz ve Liman İşletmeciliği Programı</div>
+        <p>
+          SUBÜ Denizcilik MYO; 3 bölüm ve 5 programıyla Kocaali yerleşkesinde, Karadeniz kıyısında eğitim veriyor.
+          Üniversitenin <b style="color:#fff">+1 Uygulamalı Eğitim Modeli</b> sayesinde öğrenciler bir dönem boyunca
+          işletmelerde tam zamanlı çalışarak mezun olmadan gerçek sektör deneyimi kazanıyor.
+          Deniz ve Liman İşletmeciliği Programı, 2021-2022 eğitim-öğretim yılında öğrenci alımına başladı ve
+          denizcilik sektörüne nitelikli ara elemanlar yetiştiriyor.
+        </p>
+        <div class="chip-row" style="justify-content:flex-start; margin-top:18px">
+          <span class="chip">📍 Kocaali / Sakarya</span><span class="chip">⏱️ 2 Yıl • 4 Dönem</span>
+          <span class="chip">🧑‍🏭 30 Gün Staj</span><span class="chip">🏢 +1 Uygulamalı Eğitim</span>
+        </div>
+      </div>
+      <div class="fact-list">
+        <div class="fact reveal"><span class="n">1</span><div><b>Deniz Ticareti Temeli</b><p>Deniz ticaretine giriş, gemi ve liman bilgisi ile sektörün temelleri atılıyor.</p></div></div>
+        <div class="fact reveal"><span class="n">2</span><div><b>Operasyon Becerisi</b><p>Liman ve terminal işlemleri, yük operasyonları ve gemi acenteciliği uygulamalı olarak öğreniliyor.</p></div></div>
+        <div class="fact reveal"><span class="n">3</span><div><b>Sektörde Bir Dönem</b><p>+1 modeliyle bir dönem işletmede tam zamanlı çalışma ve 30 iş günü zorunlu staj deneyimi.</p></div></div>
+        <div class="fact reveal"><span class="n">4</span><div><b>Mezuniyete Hazır</b><p>Limanlar, acenteler, marinalar ve lojistik firmalarında görev almaya hazır bir mezun profili.</p></div></div>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:20px">
+      <h3>🧭 Deniz ve Liman İşletmeciliği Nedir?</h3>
+      <p style="margin-top:8px">
+        Bu program; gemilerin limana yanaşmasından yükleme-boşaltma organizasyonuna, gümrük ve acente işlemlerinden
+        lojistik planlamaya kadar deniz taşımacılığının kara tarafındaki tüm operasyonları yönetebilen uzmanlar yetiştirir.
+        Mezunlar; liman işletmelerinde, gemi acentelerinde, marinalarda, deniz nakliyat ve lojistik firmalarında,
+        tersanelerde ve dış ticaret şirketlerinde görev alabilir. Kısacası: gemiler denizde yüzer, ama onları yöneten
+        akıl limandadır — işte ben o aklın bir parçası olmak için buradayım. 💙
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DERSLER ============ -->
+<section id="dersler" style="padding-top:30px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">📚 Dersler &amp; Uzmanlık Alanları</span>
+      <h2>Programda Neler Öğreniyorum?</h2>
+      <p>Denizcilik, işletme, hukuk ve lojistiği bir araya getiren disiplinler arası bir müfredat.</p>
+    </div>
+    <div class="course-grid">
+      <div class="course reveal"><div class="e">🚢</div><h4>Deniz Ticaretine Giriş</h4><p>Deniz taşımacılığının yapısı, tarafları ve işleyişi</p></div>
+      <div class="course reveal"><div class="e">🏗️</div><h4>Gemi ve Liman Bilgisi</h4><p>Gemi tipleri, liman altyapısı ve terminal donanımları</p></div>
+      <div class="course reveal"><div class="e">📋</div><h4>Liman ve Terminal İşlemleri</h4><p>Yanaşma, yükleme-boşaltma ve saha operasyonları</p></div>
+      <div class="course reveal"><div class="e">🧭</div><h4>Gemi Acenteciliği</h4><p>Acente hizmetleri, evrak ve liman formaliteleri</p></div>
+      <div class="course reveal"><div class="e">⚖️</div><h4>Deniz Hukuku</h4><p>Deniz ticaret hukuku ve uluslararası kurallar</p></div>
+      <div class="course reveal"><div class="e">📦</div><h4>Lojistik &amp; Tedarik Zinciri</h4><p>Taşıma yönetimi, depolama ve dağıtım planlama</p></div>
+      <div class="course reveal"><div class="e">🛃</div><h4>Gümrük &amp; Dış Ticaret</h4><p>İthalat-ihracat süreçleri ve gümrük işlemleri</p></div>
+      <div class="course reveal"><div class="e">⛵</div><h4>Deniz Turizmi &amp; Marina</h4><p>Marina işletmeciliği, yat ve kruvaziyer turizmi</p></div>
+      <div class="course reveal"><div class="e">📊</div><h4>İşletme &amp; Ekonomi</h4><p>Yönetim, organizasyon, mikro ve makro ekonomi</p></div>
+      <div class="course reveal"><div class="e">🦺</div><h4>Denizde Güvenlik</h4><p>İş sağlığı, güvenlik ve emniyet kuralları</p></div>
+      <div class="course reveal"><div class="e">🌍</div><h4>Denizcilik İngilizcesi</h4><p>Sektörel terminoloji ve mesleki yabancı dil</p></div>
+      <div class="course reveal"><div class="e">🤝</div><h4>Gemi Kiralama &amp; Brokerlik</h4><p>Navlun, kiralama sözleşmeleri ve brokerlik</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ YETENEKLER ============ -->
+<section id="yetenekler" style="padding-top:30px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✨ Yetenekler</span>
+      <h2>Gelişim Alanlarım &amp; Güçlü Yönlerim</h2>
+      <p>Okulda kazandığım bilgiyle, sahada parlatmayı hedeflediğim beceriler.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="skill"><div class="skill-top"><span>🏗️ Liman Operasyon Planlama</span><span>85%</span></div><div class="bar"><i data-w="85"></i></div></div>
+        <div class="skill"><div class="skill-top"><span>🧭 Gemi Acenteciliği &amp; Evrak Takibi</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+        <div class="skill"><div class="skill-top"><span>📦 Lojistik &amp; Tedarik Zinciri</span><span>78%</span></div><div class="bar"><i data-w="78"></i></div></div>
+        <div class="skill"><div class="skill-top"><span>🤝 Ekip Çalışması &amp; İletişim</span><span>92%</span></div><div class="bar"><i data-w="92"></i></div></div>
+        <div class="skill" style="margin-bottom:0"><div class="skill-top"><span>🌍 Mesleki İngilizce</span><span>65%</span></div><div class="bar"><i data-w="65"></i></div></div>
+      </div>
+      <div class="card reveal">
+        <h3 style="margin-bottom:16px">🛠️ Araçlar &amp; İlgi Alanları</h3>
+        <div class="tags">
+          <span class="tag">💻 MS Office (Word • Excel • PowerPoint)</span>
+          <span class="tag">📊 Excel ile Takip &amp; Raporlama</span>
+          <span class="tag">🗺️ Deniz Coğrafyası &amp; Rotalar</span>
+          <span class="tag">🚢 Gemi Tipleri &amp; Yük Bilgisi</span>
+          <span class="tag">🏗️ Konteyner &amp; Terminal Sistemleri</span>
+          <span class="tag">📜 Denizcilik Mevzuatı</span>
+          <span class="tag">⛵ Marina &amp; Yat İşletmeciliği</span>
+          <span class="tag">🌐 Dış Ticaret Süreçleri</span>
+          <span class="tag">📅 Operasyon Takvimi Yönetimi</span>
+          <span class="tag">💙 Deniz &amp; Doğa Sevgisi</span>
+        </div>
+        <p style="margin-top:18px; font-size:14px">💡 <b style="color:#fff">Not:</b> Staj ve +1 Uygulamalı Eğitim dönemi için liman, acente ve lojistik firmalarındaki fırsatlara açığım. Benimle LinkedIn veya e-posta üzerinden iletişime geçebilirsiniz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KARİYER 3D ============ -->
+<section id="kariyer" style="padding-top:30px">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center; margin-inline:auto">
+      <span class="sec-tag">🧭 Kariyer Rotam</span>
+      <h2>Mezuniyet Sonrası Çalışma Alanları</h2>
+      <p>3 boyutlu kartları çevirerek denizcilik sektöründeki kariyer limanlarını keşfedin.</p>
+    </div>
+
+    <div class="carousel-zone reveal">
+      <div class="carousel" id="carousel">
+        <div class="panel"><div class="e">🏗️</div><h4>Liman İşletmeleri</h4><p>Yük ve yolcu limanlarında operasyon, planlama ve saha koordinasyonu</p></div>
+        <div class="panel"><div class="e">🧭</div><h4>Gemi Acenteleri</h4><p>Gemilerin liman formaliteleri, evrak ve ikmal organizasyonu</p></div>
+        <div class="panel"><div class="e">📦</div><h4>Lojistik Firmaları</h4><p>Denizyolu taşımacılığı, tedarik zinciri ve dağıtım yönetimi</p></div>
+        <div class="panel"><div class="e">⛵</div><h4>Marinalar</h4><p>Yat limanı işletmeciliği ve deniz turizmi hizmetleri</p></div>
+        <div class="panel"><div class="e">🚢</div><h4>Deniz Nakliyat Şirketleri</h4><p>Gemi işletmeciliği ve deniz taşımacılığı operasyonları</p></div>
+        <div class="panel"><div class="e">🛃</div><h4>Gümrük &amp; Dış Ticaret</h4><p>İthalat-ihracat süreçleri, gümrükleme ve dokümantasyon</p></div>
+      </div>
+      <div class="car-btns">
+        <button class="car-btn" id="prevBtn" aria-label="Önceki">←</button>
+        <button class="car-btn" id="nextBtn" aria-label="Sonraki">→</button>
+      </div>
+      <div class="car-hint">Kartlar otomatik döner • Butonlarla da çevirebilirsiniz</div>
+    </div>
+
+    <div class="route" style="margin-top:54px">
+      <div class="step reveal"><div class="num">ADIM 01</div><h4>🎓 Eğitim</h4><p>SUBÜ Denizcilik MYO'da teorik ve uygulamalı derslerle sağlam bir temel.</p></div>
+      <div class="step reveal"><div class="num">ADIM 02</div><h4>🧑‍🏭 Staj &amp; +1 Dönemi</h4><p>30 gün zorunlu staj ve bir dönem işletmede tam zamanlı uygulamalı eğitim.</p></div>
+      <div class="step reveal"><div class="num">ADIM 03</div><h4>⚓ Sektör Deneyimi</h4><p>Liman, acente veya lojistik firmasında operasyon ekibinde ilk görevler.</p></div>
+      <div class="step reveal"><div class="num">ADIM 04</div><h4>🌟 Uzmanlık</h4><p>Deneyim + yabancı dil + sertifikalarla operasyon yönetiminde uzmanlaşma.</p></div>
+    </div>
+
+    <div class="quote reveal" style="margin-top:54px">
+      <p>“Deniz, ona saygı duyanı ve rotasını bileni asla yarı yolda bırakmaz.<br>Ben rotamı çizdim: <span style="color:#7dd3fc">maviye, emeğe ve geleceğe.</span>”</p>
+      <span>— Fatma Gündoğan 💙</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ İLETİŞİM ============ -->
+<section id="iletisim" style="padding-top:30px">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center; margin-inline:auto">
+      <span class="sec-tag">✉️ İletişim</span>
+      <h2>Bir Kahveye (ya da Bir Liman Turuna) Ne Dersiniz? ⚓</h2>
+      <p>Staj, iş birliği veya sadece denizcilik sohbeti için bana her zaman ulaşabilirsiniz.</p>
+    </div>
+    <div class="contact-grid">
+      <article class="card contact-card reveal">
+        <div class="icon">✉️</div>
+        <h3>E-Posta</h3>
+        <p style="margin-bottom:6px">Bana e-posta gönderin:</p>
+        <a class="word" href="/cdn-cgi/l/email-protection#9cfbe9f2f8f3fbfdf2fafde8f1fda5a5dcfbf1fdf5f0b2fff3f1"><span class="__cf_email__" data-cfemail="cdaab8a3a9a2aaaca3abacb9a0acf4f48daaa0aca4a1e3aea2a0">[email&#160;protected]</span></a><br>
+        <button class="copy-btn" id="copyBtn">📋 Adresi Kopyala</button>
+      </article>
+      <article class="card contact-card reveal">
+        <div class="icon">in</div>
+        <h3>LinkedIn</h3>
+        <p style="margin-bottom:6px">Profesyonel profilimden bağlanalım:</p>
+        <a class="word" href="https://www.linkedin.com/in/fatma-g%C3%BCndo%C4%9Fan-122a37380/" target="_blank" rel="noopener">linkedin.com/in/fatma-Gündoğan ↗</a><br>
+        <a class="copy-btn" style="display:inline-block" href="https://www.linkedin.com/in/fatma-g%C3%BCndo%C4%9Fan-122a37380/" target="_blank" rel="noopener">🔗 Profili Aç</a>
+      </article>
+      <article class="card contact-card reveal">
+        <div class="icon">📍</div>
+        <h3>Konum &amp; Okul</h3>
+        <p>Denizcilik Meslek Yüksekokulu<br><b style="color:#fff">Kocaali / Sakarya</b><br>Sakarya Uygulamalı Bilimler Üniversitesi</p>
+        <a class="copy-btn" style="display:inline-block" href="https://denizcilikmyo.subu.edu.tr/" target="_blank" rel="noopener">🏛️ Okulumun Sitesi ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 <b style="color:#fff">Fatma Gündoğan</b> — Tüm hakları saklıdır. ⚓</div>
+    <div>Bu site sevgiyle hazırlandı <span class="heart">💙</span> İyi ki varsın Fatma!</div>
+    <div><a href="#anasayfa" style="color:#7dd3fc; font-weight:700">↑ Başa Dön</a></div>
+  </div>
+</footer>
+
+<div id="toast">✅ E-posta adresi kopyalandı!</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function(){
+  "use strict";
+  /* Header + progress */
+  var header=document.getElementById('header'), prog=document.getElementById('progress');
+  function onScroll(){
+    header.classList.toggle('scrolled', window.scrollY>30);
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    prog.style.width=(max>0 ? (window.scrollY/max)*100 : 0)+'%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* Mobile menu */
+  var menuBtn=document.getElementById('menuBtn'), navLinks=document.getElementById('navLinks');
+  menuBtn.addEventListener('click', function(){ var o=navLinks.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); menuBtn.textContent = o ? '✕' : '☰'; });
+  navLinks.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ navLinks.classList.remove('open'); }); });
+
+  /* Cursor glow */
+  var glow=document.getElementById('glow');
+  window.addEventListener('mousemove', function(e){ glow.style.left=e.clientX+'px'; glow.style.top=e.clientY+'px'; }, {passive:true});
+
+  /* 3D tilt */
+  var stage=document.getElementById('stage'), card=document.getElementById('tiltCard');
+  if(window.matchMedia('(hover:hover)').matches){
+    stage.addEventListener('mousemove', function(e){
+      var r=stage.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform='rotateY('+(x*14)+'deg) rotateX('+(-y*12)+'deg)';
+    });
+    stage.addEventListener('mouseleave', function(){ card.style.transform='rotateY(0) rotateX(0)'; });
+  }
+
+  /* Sea canvas: bubbles + particles */
+  var cv=document.getElementById('seaCanvas'), ctx=cv.getContext('2d'), W, H, parts=[];
+  function resize(){
+    W=cv.width=cv.offsetWidth; H=cv.height=cv.offsetHeight;
+    parts=[];
+    for(var i=0;i<70;i++){ parts.push({x:Math.random()*W, y:Math.random()*H, r:Math.random()*2.4+.6, s:Math.random()*.55+.18, o:Math.random()*.55+.2, ph:Math.random()*6.28}); }
+  }
+  window.addEventListener('resize', resize); resize();
+  (function loop(t){
+    ctx.clearRect(0,0,W,H);
+    parts.forEach(function(p){
+      p.y-=p.s; p.x+=Math.sin(t/1400+p.ph)*.25;
+      if(p.y<-6){ p.y=H+6; p.x=Math.random()*W; }
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.29);
+      ctx.fillStyle='rgba(125,211,252,'+p.o+')'; ctx.fill();
+    });
+    requestAnimationFrame(loop);
+  })(0);
+
+  /* Reveal on scroll */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* Counters */
+  var cio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return; cio.unobserve(e.target);
+      var end=+e.target.dataset.count, t0=null;
+      (function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/1100,1);
+        e.target.textContent=Math.round(end*(1-Math.pow(1-p,3)));
+        if(p<1) requestAnimationFrame(step); })(performance.now());
+    });
+  }, {threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+  /* Skill bars */
+  var bio=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.style.width=e.target.dataset.w+'%'; bio.unobserve(e.target); } });
+  }, {threshold:.5});
+  document.querySelectorAll('.bar i').forEach(function(el){ bio.observe(el); });
+
+  /* 3D Carousel */
+  var car=document.getElementById('carousel'), panels=car.children, n=panels.length, angle=0, step=360/n;
+  var radius = window.innerWidth < 720 ? 235 : 300;
+  function place(){ for(var i=0;i<n;i++){ panels[i].style.transform='rotateY('+(i*step)+'deg) translateZ('+radius+'px)'; } }
+  place();
+  function render(){ car.style.transform='translateZ(-'+radius+'px) rotateY('+angle+'deg)'; }
+  window.addEventListener('resize', function(){ var r2 = window.innerWidth < 720 ? 235 : 300; if(r2!==radius){ radius=r2; place(); render(); } });
+  render();
+  var timer=setInterval(function(){ angle-=step; render(); }, 3400);
+  function manual(d){ clearInterval(timer); angle+=d*step; render();
+    timer=setInterval(function(){ angle-=step; render(); }, 3400); }
+  document.getElementById('nextBtn').addEventListener('click', function(){ manual(-1); });
+  document.getElementById('prevBtn').addEventListener('click', function(){ manual(1); });
+
+  /* Copy email */
+  var toast=document.getElementById('toast');
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var mail='gundoganfatma99@gmail.com';
+    function done(){ toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2600); }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(mail).then(done).catch(function(){ fallback(); done(); }); }
+    else { fallback(); done(); }
+    function fallback(){ var ta=document.createElement('textarea'); ta.value=mail; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');}catch(e){} ta.remove(); }
+  });
+
+  /* Marquee duplicate */
+  var track=document.getElementById('marqueeTrack');
+  track.innerHTML+=track.innerHTML;
+})();
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a512f642dd720d26',t:'MTc5MzExNzMzMg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
